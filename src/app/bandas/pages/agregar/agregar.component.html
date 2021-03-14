@@ -1,0 +1,62 @@
+<h1> 
+    {{ ( banda.id )? 'Editar' : 'Nuevo'}}
+    Banda
+    <small>{{ banda.nombre }}</small>
+</h1>
+
+<div fxLayout="row" fxLayoutGap="40px">
+<div fxFlex="50" fxLayout="column" fxLayout.xs="column">  
+    <div fxLayout= "row" fxLayout.xs="column" fxLayoutGap="20px">
+        <mat-form-field fxFlex="100" fxLayout.xs="column">
+            <mat-label>Nombre de la Banda</mat-label>
+            <input matInput type="text" [(ngModel)]="banda.nombre" required>
+    
+        </mat-form-field>
+    
+        <mat-form-field fxFlex="100">
+            <mat-label>Año de lanzamiento</mat-label>
+            <input matInput type="text" [(ngModel)]="banda.ano_lanzamiento" required>
+    
+        </mat-form-field>
+    </div>
+    
+    <mat-form-field>
+        <mat-label>País de origen</mat-label>
+        <input matInput type="text" [(ngModel)]="banda.pais_origien" required>
+
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Descripción de la banda</mat-label>
+        <input matInput type="text" [(ngModel)]="banda.descripcion" required>
+
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Foto Url</mat-label>
+        <input matInput type="url" [(ngModel)]="banda.alt_img" required>
+
+    </mat-form-field>
+    <br>
+    <div fxLayout>
+    <button mat-raised-button color="primary" (click)="guardar()">
+        <mat-icon>edit</mat-icon>
+        {{ ( banda.id )? 'Actualizar' : 'Crear'}}
+    </button>
+<span class="spacer"></span>
+    
+        <button *ngIf="banda.id"
+            mat-raised-button 
+            (click)="borrarBanda()"
+            color="warn" >
+            <mat-icon>remove</mat-icon>
+            Borrar
+        </button>
+    </div>
+</div>
+
+
+<div fxFlex="50">
+    <img [src]="banda | imagen">
+</div>
+</div>

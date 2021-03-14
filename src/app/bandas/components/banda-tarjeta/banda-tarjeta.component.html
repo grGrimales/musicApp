@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header >
+        <mat-card-title>{{banda.nombre}}</mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image [src]="banda | imagen">
+    <mat-card-content>
+       <h3>{{banda.ano_lanzamiento}}</h3> 
+       <p>
+           <strong>
+               Año de lanzamiento
+           </strong> {{banda.ano_lanzamiento}}
+           <br>
+           <strong>País de origen</strong> {{banda.pais_origien}}
+       </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button color="warn"  [routerLink]="['/bandas', banda.id]">
+            Leer más...
+        </button>
+        <button mat-button color="info" [routerLink]="['/bandas/editar', banda.id]">
+            Editar
+        </button>
+    </mat-card-actions>
+</mat-card>
