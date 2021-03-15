@@ -8,14 +8,13 @@ export class ImagenPipe implements PipeTransform {
 
   transform(banda: Banda): string {
 
-    if( !banda.id || banda.alt_img === "" ){
-      return 'assets/no-image.png';
-    }else if ( banda.alt_img ){
-      return banda.alt_img;
-    }else{
-      return `assets/imagenes/${ banda.id}.jpg`;
-    }
-  }
+if(!banda.alt_img || banda.alt_img === "" ) {
+  return 'assets/no-image.png';
+} else {
+  return banda.alt_img
+}
 
+
+}
 
 }

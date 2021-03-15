@@ -1,46 +1,44 @@
-
 <mat-grid-list cols="1" *ngIf="!banda; else divBanda">
-    <mat-grid-tile>
-        <mat-spinner></mat-spinner>
-    </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
 
 </mat-grid-list>
 
 <ng-template #divBanda>
   <div fxLayout="row" fxLayout.xs="colum" fxLayoutGap="30px">
-<div fxFlex="50">
-    <h1>{{ banda.nombre }} </h1>
-   <mat-divider>
-   </mat-divider> 
-   <br>
-   <img [src]=" banda | imagen">
-</div>
-<div class="mt-5" fxFlex="50">
- 
-    <mat-divider></mat-divider>
-  <mat-card>
-    <mat-card-header> 
-    <div  mat-card-avatar  class = "example-header-image" > </div> 
-    <mat-card-title > País de origen: {{banda.pais_origien}} </mat-card-title> 
-    <mat-card-subtitle > Año de lanzamiento: {{banda.ano_lanzamiento}}</mat-card-subtitle> 
-  </mat-card-header> 
-    <mat-card-content> 
-    <p>
-        {{banda.descripcion}}
-    </p> 
-  </mat-card-content> 
-  <mat-card-actions> 
-    <button  mat-button color="warn"(click)="regresar()"> Regresar</button>
-     
-  </mat-card-actions> 
-  
-  </mat-card>
-  
+    <div fxFlex="50">
+      <h1>{{ banda.nombre }} </h1>
+      <mat-divider>
+      </mat-divider>
+      <br>
+      <img [src]=" banda | imagen">
 
+    </div>
+    <div class="mt-5" fxFlex="50">
 
-    <br>
-   
-</div>
+      <mat-divider></mat-divider>
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title> País de origen: {{banda.pais_origen}} </mat-card-title>
+          <mat-card-subtitle> Año de lanzamiento: {{banda.ano_lanzamiento}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{banda.descripcion}}
+          </p>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-icon-button [href]="banda.url" target="_blank"> <mat-icon>library_music</mat-icon></a>
+          <button mat-button color="warn" (click)="regresar()"> Regresar</button>
+         
+        </mat-card-actions>
+
+      </mat-card>
+  
+    </div>
 
   </div>
+
 </ng-template>

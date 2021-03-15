@@ -17,7 +17,17 @@ export class ListadoComponent implements OnInit {
   ngOnInit(): void {
 
     this.bandasService.getBandas()
-    .subscribe( bandas => this.bandas = bandas);
+    .subscribe( bandas => {
+
+
+      bandas.forEach(x => console.log(x.alt_img))
+
+      //console.log(bandas[0].alt_img);
+      this.bandas = bandas
+
+    } );
+
+
   }
 
 }

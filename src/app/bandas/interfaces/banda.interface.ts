@@ -2,15 +2,11 @@ export interface Banda {
     id?: string;
     nombre?: string;
     ano_lanzamiento?: string;
-    pais_origien?: string;
+    pais_origen?: string;
     descripcion?: string;
     alt_img?: string;
+    url?: string;
+   
 
 }
 
-/*
-export enum Publisher {
-    DCComics = "DC Comics",
-    MarvelComics = "Marvel Comics",
-}
-*/

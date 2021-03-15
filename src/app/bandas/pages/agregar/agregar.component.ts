@@ -19,22 +19,12 @@ import { ConfirmarComponent } from '../../components/confirmar/confirmar.compone
   ]
 })
 export class AgregarComponent implements OnInit {
-
-  publishers = [
-    {
-      id: 'DC Comics',
-      desc: 'DC - Comics'
-    },
-    {
-      id: 'Marvel Comics',
-      desc: 'Marvel - Comics'
-    }
-  ];
   banda: Banda = {
     nombre: '',
     pais_origen: '',
     ano_lanzamiento: '',
     descripcion: ''
+    
   }
 
   constructor(private bandasService: BandasService,
@@ -63,11 +53,14 @@ export class AgregarComponent implements OnInit {
     }
     if (this.banda.id) {
       this.bandasService.actualizarBanda(this.banda)
-        .subscribe(banda => this.mostrarSnakbar('Registro actualizado'));
+        .subscribe(banda =>{ this.mostrarSnakbar('Registro actualizado');
+        this.router.navigate(['/bandas/listado', banda.id]);
+      }) 
+        
     } else {
       this.bandasService.agregarBanda(this.banda)
         .subscribe(banda => {
-          this.router.navigate(['/bandas/editar', banda.id]);
+          this.router.navigate(['/bandas/listado', banda.id]);
           this.mostrarSnakbar('Registro creado');
         })
 

@@ -15,16 +15,24 @@ import { BandasService } from '../../services/bandas.service';
   mat-card {
     margin-top: 20px;
   }
+  card {
+  max-width: 400px;
+}
+.video{
+  margin-top: 10px
+}
   `
   ]
 })
+
 export class BandaComponent implements OnInit {
+  url: Banda;
   banda!: Banda;
-
+  
   constructor(private activatedRouter: ActivatedRoute, 
-              private bandaService:BandasService,
-              private router: Router) { }
-
+    private bandaService:BandasService,
+    private router: Router) { }
+    
   ngOnInit(): void {
     this.activatedRouter.params
     .pipe(
@@ -35,5 +43,10 @@ export class BandaComponent implements OnInit {
   }
   regresar(){
     this.router.navigate(['/bandas/listado']);
+  }
+  urlPagina(){
+  let urlPagina: string = `https://open.spotify.com/artist/${ this.url }=true`;
+
+    return urlPagina;
   }
 }
