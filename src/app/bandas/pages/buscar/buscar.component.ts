@@ -33,8 +33,13 @@ export class BuscarComponent implements OnInit {
     }
     const banda:Banda = event.option.value;
       this.termino = banda.nombre;
-      this.bandasService.getBandasPorId(banda.id )
-      .subscribe(banda => this.bandaSeleccionado = banda);
+      this.bandasService.getBandasPorId(banda._id )
+      .subscribe(banda => {
+
+        console.log(banda);
+        this.bandaSeleccionado = banda
+      
+      });
   }
 
 }

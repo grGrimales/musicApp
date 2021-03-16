@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000'
+  baseUrl: 'https://backend-grediana-test.herokuapp.com/api'
 };
 /*
  * For easier debugging in development mode, you can import the following file

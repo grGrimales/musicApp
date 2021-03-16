@@ -1,5 +1,5 @@
 export interface Banda {
-    id?: string;
+    _id?: string;
     nombre?: string;
     ano_lanzamiento?: string;
     pais_origen?: string;

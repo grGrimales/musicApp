@@ -20,8 +20,6 @@ export class ListadoComponent implements OnInit {
     .subscribe( bandas => {
 
 
-      bandas.forEach(x => console.log(x.alt_img))
-
       //console.log(bandas[0].alt_img);
       this.bandas = bandas
 

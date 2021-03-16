@@ -31,7 +31,7 @@ export class BandasService {
   }
 
   actualizarBanda( heroe: Banda ): Observable<Banda>{
-    return this.http.put<Banda>( `${ this.baseUrl }/bandas/${ heroe.id }`, heroe);
+    return this.http.put<Banda>( `${ this.baseUrl }/bandas/${ heroe._id }`, heroe);
   }
 
   borrarBanda(id: string ): Observable<any>{

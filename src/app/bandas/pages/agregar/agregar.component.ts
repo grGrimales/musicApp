@@ -51,16 +51,16 @@ export class AgregarComponent implements OnInit {
     if (this.banda.nombre.trim().length === 0) {
       return
     }
-    if (this.banda.id) {
+    if (this.banda._id) {
       this.bandasService.actualizarBanda(this.banda)
         .subscribe(banda =>{ this.mostrarSnakbar('Registro actualizado');
-        this.router.navigate(['/bandas/listado', banda.id]);
+        this.router.navigate(['/bandas/listado', banda._id]);
       }) 
         
     } else {
       this.bandasService.agregarBanda(this.banda)
         .subscribe(banda => {
-          this.router.navigate(['/bandas/listado', banda.id]);
+          this.router.navigate(['/bandas/listado', banda._id]);
           this.mostrarSnakbar('Registro creado');
         })
 
@@ -77,7 +77,7 @@ export class AgregarComponent implements OnInit {
     dialog.afterClosed().subscribe(
       (result) => {
         if (result) {
-          this.bandasService.borrarBanda(this.banda.id!)
+          this.bandasService.borrarBanda(this.banda._id!)
             .subscribe(resp => {
               this.router.navigate(['/bandas']);
             });

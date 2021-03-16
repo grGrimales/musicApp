@@ -1,5 +1,5 @@
 <h1> 
-    {{ ( banda.id )? 'Editar' : 'Nuevo'}}
+    {{ ( banda._id )? 'Editar' : 'Nuevo'}}
     Banda
     <small>{{ banda.nombre }}</small>
 </h1>
@@ -41,11 +41,11 @@
     <div fxLayout>
     <button mat-raised-button color="primary" (click)="guardar()">
         <mat-icon>edit</mat-icon>
-        {{ ( banda.id )? 'Actualizar' : 'Crear'}}
+        {{ ( banda._id )? 'Actualizar' : 'Crear'}}
     </button>
 <span class="spacer"></span>
     
-        <button *ngIf="banda.id"
+        <button *ngIf="banda._id"
             mat-raised-button 
             (click)="borrarBanda()"
             color="warn" >
